@@ -120,32 +120,11 @@ USE_I18N = True
 
 USE_TZ = True
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 
 
 STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
-
-
-STATICFILES_DIRS = (
-	os.path.join(BASE_DIR,  'static'),
-)
-
-
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-PROJECT_ROOT = os.path.join(os.path.abspath(__file__))
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-import cloudinary
-
-CLOUDINARY_STORAGE = {
-	'CLOUD_NAME': 'ayyan',
-	'API_KEY': '797928911849321',
-	'API_SECRET': 'PF-fnSP8AeTk2hdLsBynd7OJ3Rw'
-}
-
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 INTERNAL_IPS = ['127.0.0.1']
