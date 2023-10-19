@@ -1,0 +1,157 @@
+{% extends "pld_app/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="sub_page">
+<div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+            <div class="custom_menu-btn">
+                <button onclick="openNav()">
+                    <span class="s-1"> </span>
+                    <span class="s-2"> </span>
+                    <span class="s-3"> </span>
+                </button>
+            </div>
+            <div id="myNav" class="overlay">
+                <div class="menu_btn-style ">
+                    <button onclick="closeNav()">
+                        <span class="s-1"> </span>
+                        <span class="s-2"> </span>
+                        <span class="s-3"> </span>
+                    </button>
+                </div>
+                <div class="overlay-content">
+                    <a href="/">
+                        Home
+                    </a>
+                    <a class="" href="/plants-collection">
+                        Plants Collection
+                    </a>
+                    <a class="" href="/about-us">
+                        About us
+                    </a>
+                    <a class="active" href="/contact-us">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+            <a class="navbar-brand" href="/">
+                <span>
+                    LeafLab
+                </span>
+            </a>
+            <div class="user_option">
+                <a href="https://github.com/Ayyan420" target="_blank" style="margin: 30px 30px;">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ayyan-siddiqui-211547204/" target="_blank">
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+</div>
+</div>
+
+
+  <section class="contact_section layout_padding section_pl ">
+    <div class="container py_mobile_45">
+      <div class="heading_container d-flex justify-content-center align-items-center">
+        <h2>Get <span>In Touch</span></h2>
+      </div>
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-md-8">
+          <div class="form_container">
+            <form method="post">
+              <div>
+                <input type="text" name="name" required="" placeholder="Full Name " />
+              </div>
+              <div>
+                <input type="text" name="number" required="" placeholder="Phone number" />
+              </div>
+              <div>
+                <input type="email" name="email" required="" placeholder="Email" />
+              </div>
+              <div>
+                <input type="text" name="message" required="" class="message-box" placeholder="Message" />
+              </div>
+              <div class="d-flex justify-content-center align-items-center">
+                <button>
+                  SUBMIT
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="info_section layout_padding section_pl">
+    <div class="container">
+        <div class="info_logo">
+            <a href="">
+                LeafLab
+            </a>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="info_contact">
+                    <h4>
+                        LeafLab Team
+                    </h4>
+                    <div class="contact_link_box">
+                        <a href="">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <span>
+                                Email : support@leaflab.com
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info_link_box">
+                    <h4>
+                        Quick Links
+                    </h4>
+                    <div class="info_links">
+                        <a class="active" href="/">
+                            Home
+                        </a>
+                        <a class="" href="service.html">
+                            Plants Collection
+                        </a>
+                        <a class="" href="why.html">
+                            About Us
+                        </a>
+                        <a class="" href="why.html">
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info_detail">
+                    <h4>
+                        Motive
+                    </h4>
+                    <p>
+                        We are committed to promoting healthy plant growth and preventing damage before it occurs. Our system not only provides accurate predictions.
+                        Whether you're a novice gardener or a seasoned horticulturist, LeafLab is here to enhance your plant care journey. Join us in harnessing the power of AI for greener and healthier plant life.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="footer_section">
+    <div class="container">
+        <p>
+            &copy; <span id="displayYear"></span> All Rights Reserved.
+        </p>
+    </div>
+</footer>
+{% endblock content %}

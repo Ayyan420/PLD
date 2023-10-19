@@ -1,0 +1,374 @@
+{% extends "pld_app/base.html" %}
+{% load static %}
+{% block content %}
+<div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+            <div class="custom_menu-btn">
+                <button onclick="openNav()">
+                    <span class="s-1"> </span>
+                    <span class="s-2"> </span>
+                    <span class="s-3"> </span>
+                </button>
+            </div>
+            <div id="myNav" class="overlay">
+                <div class="menu_btn-style ">
+                    <button onclick="closeNav()">
+                        <span class="s-1"> </span>
+                        <span class="s-2"> </span>
+                        <span class="s-3"> </span>
+                    </button>
+                </div>
+                <div class="overlay-content">
+                    <a class="active" href="/">
+                        Home
+                    </a>
+                    <a class="" href="/plants-collection">
+                        Plants Collection
+                    </a>
+                    <a class="" href="/about-us">
+                        About us
+                    </a>
+                    <a class="" href="/contact-us">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+            <a class="navbar-brand" href="/">
+                <span>
+                    LeafLab
+                </span>
+            </a>
+            <div class="user_option">
+                <a href="https://github.com/Ayyan420" target="_blank" style="margin: 30px 0;">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ayyan-siddiqui-211547204/" target="_blank">
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section position-relative">
+        <a class="navbar-brand" href="/">
+            <span>
+                LeafLab
+            </span>
+        </a>
+        <div class="box">
+            <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-lg-10 ml-auto">
+                                <div class="detail-box">
+                                    <h1>
+                                        Empowering <br />
+                                        Plant Care with AI
+                                    </h1>
+                                    <div class="btn-box">
+                                        <a href="#get-started" class="btn-1">
+                                            Get Started
+                                        </a>
+                                        <a href="#help" class="btn-2">
+                                            Help
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-lg-10 ml-auto">
+                                <div class="detail-box">
+                                    <h1>
+                                        Greenery Guardian <br />
+                                        Leaf by Leaf
+                                    </h1>
+                                    <div class="btn-box">
+                                        <a href="#get-started" class="btn-1">
+                                            Get Started
+                                        </a>
+                                        <a href="#help" class="btn-2">
+                                            Help
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-lg-10 ml-auto">
+                                <div class="detail-box">
+                                    <h1>
+                                        Predicting Plant <br />
+                                        Perfection
+                                    </h1>
+                                    <div class="btn-box">
+                                        <a href="#get-started" class="btn-1">
+                                            Get Started
+                                        </a>
+                                        <a href="#help" class="btn-2">
+                                            Help
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel_btn-box">
+                    <a class="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev">
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end slider section -->
+</div>
+<section class="choose_section layout_padding section_pl " id="get-started">
+    <div class="container py_mobile_45">
+        <div class="heading_container heading_center mb-4 pb-4">
+            <h2>Diagnose <span>Your Plant </span></h2>
+        </div>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-sm-4">
+                <form method="post" enctype=multipart/form-data class="upload">
+                    {% csrf_token %}
+                    <select name="plant_type" id="plant_type" required="">
+                        <option value="">Select Plant</option>
+                        {% for pc in plants_collection %}
+                            {% if pc.name != 'Random Images' %}
+                                <option value="{{pc.name}}">{{pc.name}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    <input type="file" accept="image/*" name="plant_leaf_image" title="" class="drop-here" />
+                    <div class="text text-drop text-center">Drop leaf image here or click to select</div>
+                    <div class="text text-upload">uploading</div>
+                    <svg class="progress-wrapper" width="300" height="300">
+                        <circle class="progress" r="115" cx="150" cy="150"></circle>
+                    </svg>
+                    <svg class="check-wrapper" width="130" height="130">
+                        <polyline class="check" points="100.2,40.2 51.5,88.8 29.8,67.5 " />
+                    </svg>
+                    <div class="shadow"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- we do section -->
+<section class="wedo_section layout_padding section_pr" id="help">
+    <div class="container">
+        <div class="heading_container">
+            <h2>How<span> & </span>What We do</h2>
+        </div>
+        <div class="carousel-wrap ">
+            <div class="owl-carousel wedo_owl_carousel">
+                <div class="item">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{% static "images/leaflans.png" %}" alt="" />
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                LeafLab
+                            </h5>
+                            <p>
+                                We specialize in leveraging cutting-edge artificial intelligence and deep learning technology to predict and prevent diseases in plant leaves. Our platform is designed to make plant care easier and more effective for enthusiasts, gardeners, farmers, and professionals.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box ">
+                        <div class="img-box">
+                            <img src="{% static "images/wedo-img2.jpg" %}" alt="" />
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                How we do it
+                            </h5>
+                            <p>
+                                Our advanced AI-driven system analyzes images of plant leaves, whether it's a houseplant on your windowsill or a crop in a vast field. Right now we are covering up some particulars plants.
+                            </p>
+                            <a href="/plants-collection">
+                                See Plants Collection
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box ">
+                        <div class="img-box">
+                            <img src="{% static "images/upoad.png" %}" alt="" />
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Image Upload
+                            </h5>
+                            <p>
+                                Users simply upload a clear image of their plant's leaves to our platform.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box ">
+                        <div class="img-box">
+                            <img src="{% static "images/diagram.png" %}" alt="" />
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                AI/Deep Learning Diagnosis
+                            </h5>
+                            <p>
+                                Our AI algorithms meticulously examine the image, identifying any signs of disease, stress, or anomalies.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box ">
+                        <div class="img-box">
+                            <img src="{% static "images/Speed-of-Feedback.png" %}" alt="" />
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Instant Feedback
+                            </h5>
+                            <p>
+                                Within moments, users receive a comprehensive diagnosis of the leaf.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end we do section -->
+<!-- choose section -->
+<!-- end choose section -->
+<!-- contact section -->
+<!-- <section class="contact_section layout_padding section_pl ">
+    <div class="container py_mobile_45">
+        <div class="heading_container">
+            <h2>Get <span>In Touch</span></h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form_container">
+                    <form action="">
+                        <div>
+                            <input type="text" placeholder="Full Name " />
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Phone number" />
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Email" />
+                        </div>
+                        <div>
+                            <input type="text" class="message-box" placeholder="Message" />
+                        </div>
+                        <div class="d-flex ">
+                            <button>
+                                SEND
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="map_container">
+                    <div class="map">
+                        <div id="googleMap"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+<!-- end contact section -->
+<!-- info section -->
+<section class="info_section layout_padding section_pl">
+    <div class="container">
+        <div class="info_logo">
+            <a href="">
+                LeafLab
+            </a>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="info_contact">
+                    <h4>
+                        LeafLab Team
+                    </h4>
+                    <div class="contact_link_box">
+                        <a href="">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <span>
+                                Email : support@leaflab.com
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info_link_box">
+                    <h4>
+                        Quick Links
+                    </h4>
+                    <div class="info_links">
+                        <a class="active" href="/">
+                            Home
+                        </a>
+                        <a class="" href="service.html">
+                            Plants Collection
+                        </a>
+                        <a class="" href="why.html">
+                            About Us
+                        </a>
+                        <a class="" href="why.html">
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info_detail">
+                    <h4>
+                        Motive
+                    </h4>
+                    <p>
+                        We are committed to promoting healthy plant growth and preventing damage before it occurs. Our system not only provides accurate predictions.
+                        Whether you're a novice gardener or a seasoned horticulturist, LeafLab is here to enhance your plant care journey. Join us in harnessing the power of AI for greener and healthier plant life.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end info section -->
+<!-- footer section -->
+<footer class="footer_section">
+    <div class="container">
+        <p>
+            &copy; <span id="displayYear"></span> All Rights Reserved.
+        </p>
+    </div>
+</footer>
+{% endblock content %}
