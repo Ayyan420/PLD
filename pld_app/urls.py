@@ -14,4 +14,5 @@ urlpatterns = [
     path('about-us', views.about_us , name = "About Us"),
     path('contact-us', views.contact_us , name = "Contact Us"),
     path('prediction-result', views.prediction_result , name = "Prediction Result"),
+    path('health', views.health , name = "Health"),
 ]

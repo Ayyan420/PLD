@@ -176,6 +176,10 @@ except FileNotFoundError:
 
 
 
+def health(request):
+	return HttpResponse(Plant.objects.count())
+
+
 @csrf_exempt
 def plants_collection(request):
 
