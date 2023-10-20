@@ -64,7 +64,17 @@
                     <div class="box_content">
                         <div class="img-box">
                             {% if result_to_show %}
-                            <img src="{{result_to_show}}" alt="{{plant_type}}" style="width:400px !important;" />
+                            <style>
+                                @media only screen and (max-width: 600px){
+                                    .c_img{
+                                        width: 100% !important;
+                                    }
+                                    .heading_container h2{
+                                        font-size: 22px;
+                                    }
+                                }
+                            </style>
+                            <img class="c_img" src="{{result_to_show}}" alt="{{plant_type}}" style="width:400px;" />
                             {% endif %}
                         </div>
                         <div class="detail-box">
@@ -78,6 +88,13 @@
                             </p>
                             {% endif %}
                         </div>
+                    </div>
+                </div>
+                <div class="box mt-2">
+                    <div class="detail-box">
+                        <a href="/" style="background-color: #ffc107; color:#02231a;">
+                            Go Back
+                        </a>
                     </div>
                 </div>
             </div>
@@ -147,13 +164,13 @@
                         <a class="active" href="/">
                             Home
                         </a>
-                        <a class="" href="service.html">
+                        <a class="" href="/plants-collection">
                             Plants Collection
                         </a>
-                        <a class="" href="why.html">
+                        <a class="" href="/about-us">
                             About Us
                         </a>
-                        <a class="" href="why.html">
+                        <a class="" href="/contact-us">
                             Contact Us
                         </a>
                     </div>
