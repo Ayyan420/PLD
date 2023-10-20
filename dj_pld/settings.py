@@ -17,7 +17,7 @@ SECRET_KEY = 'django-insecure-w93#4h9217s(ax(0m-=e$^1_man^%_rs5cc4myuzwu1i^9y)mg
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['*']
+CSRF_TRUSTED_ORIGINS = ['https://*.openshiftapps.com']
 
 
 # Application definition
