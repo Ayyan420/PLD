@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pld_app',
     'crispy_forms',
-    'cloudinary_storage'
+    'cloudinary_storage',
     'cloudinary'
 ]
 
