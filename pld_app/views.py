@@ -1,3 +1,11 @@
+
+
+from django.contrib.auth.models import User
+
+
+
+
+
 from django.http import HttpResponse
 from django.shortcuts import render
 from pld_app.models import *
@@ -177,6 +185,19 @@ except FileNotFoundError:
 
 
 def health(request):
+
+	# Create a new user
+
+	if not User.objects.all():
+		new_user = User.objects.create_user(username='admin', password='admin', email='admin@admin.com')
+
+		# You can also set additional user attributes if needed
+		new_user.first_name = 'Ayyan'
+		new_user.last_name = 'Saddiqui'
+
+		# Save the new user
+		new_user.save()
+
 	return HttpResponse(Plant.objects.count())
 
 
