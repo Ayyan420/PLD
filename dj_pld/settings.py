@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'pld_app',
     'crispy_forms',
     'cloudinary_storage'
+    'cloudinary'
 ]
 
 MIDDLEWARE = [

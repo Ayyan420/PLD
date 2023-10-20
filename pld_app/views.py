@@ -189,7 +189,7 @@ def health(request):
 	# Create a new user
 
 	if not User.objects.all():
-		new_user = User.objects.create_user(username='admin', password='admin', email='admin@admin.com')
+		new_user = User.objects.create_superuser(username='admin', password='admin', email='admin@admin.com')
 
 		# You can also set additional user attributes if needed
 		new_user.first_name = 'Ayyan'
